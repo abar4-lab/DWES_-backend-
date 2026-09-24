@@ -26,6 +26,21 @@ $tmsg = [
 
 function calcularGanador (String $valor1, String $valor2): int{
     // COMPLETAR
+    if ($valor1 == PIEDRA) {
+        if ($valor2 == PIEDRA) return 0;
+        if ($valor2 == PAPEL) return 2;
+        if ($valor2 == TIJERAS) return 1;
+    }
+    else if ($valor1 == PAPEL) {
+        if ($valor2 == PIEDRA) return 1;
+        if ($valor2 == PAPEL) return 0;
+        if ($valor2 == TIJERAS) return 2;
+    }
+    else if ($valor1 == TIJERAS) {
+        if ($valor2 == PIEDRA) return 2;
+        if ($valor2 == PAPEL) return 1;
+        if ($valor2 == TIJERAS) return 0;
+    }
     return 0;
 }
 /**
@@ -34,6 +49,10 @@ function calcularGanador (String $valor1, String $valor2): int{
  */
 function obtenerFicha (): string {
    // COMPLETAR
+   $ficha = rand(1,3);
+   if ($ficha == 1) return PIEDRA;
+   if ($ficha == 2) return TIJERAS;
+   if ($ficha == 3) return PAPEL;
    return PAPEL;
   }
 
