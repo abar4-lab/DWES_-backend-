@@ -8,15 +8,15 @@ me muestre directamente la última posición, donde debe estar el máximo.
 
 <?php
     $paises = [];
-    require_once __DIR__ . "   /infopaises.php";
+    require_once 'infopaises.php';
 
     // Encontrar el país con la mayor población
     $paisMaxPoblacion = null;
     $maxPoblacion = 0;
 
     foreach ($paises as $pais => $info) {
-        if ($info['poblacion'] > $maxPoblacion) {
-            $maxPoblacion = $info['poblacion'];
+        if ($info['Poblacion'] > $maxPoblacion) {
+            $maxPoblacion = $info['Poblacion'];
             $paisMaxPoblacion = $pais;
         }
     }
@@ -33,6 +33,14 @@ me muestre directamente la última posición, donde debe estar el máximo.
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>País con más población</h1>
+    <p><?php echo $paisMaxPoblacion; ?></p>
+    <table>
+        <tr>
+            <?php foreach ($ciudades[$paisMaxPoblacion] as $ciudad): ?>
+                <td> <?php echo $ciudad ?></td>
+            <?php endforeach; ?>
+        </tr>
+    </table>
 </body>
 </html>
