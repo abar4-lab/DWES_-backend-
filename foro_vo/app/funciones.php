@@ -1,7 +1,6 @@
 <?php
 function usuarioOk($usuario, $contraseña) :bool {
 
-   $msg = "";
    if (strlen($usuario) < 8 ){
       return false;
    }
@@ -17,16 +16,16 @@ function usuarioOk($usuario, $contraseña) :bool {
 }
 
 function letraMasRepetida($texto){
-   // convertir todo en mayúsculas para no diferenciar caracteres
-   $texto=strtoupper($texto);
+   // convertir todo en minúsculas para no diferenciar caracteres
+   $texto=strtolower($texto);
 
    // array contador
    $contador = [];
-   for ($i = 0; strlen($texto); $i++){
+   for ($i = 0; $i < strlen($texto); $i++){
       $letra = $texto[$i];
 
       // omitimos caracteres que no sean letras
-      if ($letra >= 'A' && $letra <= 'Z'){
+      if ($letra >= 'a' && $letra <= 'z'){
          if (isset($contador[$letra])){
             $contador[$letra]++;
             //si ya existe sumamos 1
@@ -52,7 +51,7 @@ function letraMasRepetida($texto){
 }
 
 function palabraMasRepetida($texto) {
-    $texto = strtoupper($texto);
+    $texto = strtolower($texto);
     
     // Convertimos el texto en un array de palabras usando str_word_count básico
     $palabras = str_word_count($texto, 1);
