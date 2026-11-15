@@ -55,7 +55,7 @@ class BiciElectrica {
      */
     public function distancia($x, $y) {
         //COMPLETAR ----------------
-        return 10;
+        return sqrt(pow($this->coordx - $x, 2) + pow($this->coordy - $y, 2));
     }
 }
 
